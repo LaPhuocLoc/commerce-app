@@ -1,0 +1,77 @@
+@use "../../scss/" as *;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  background-color: transparent;
+  z-index: 99;
+  transition: all .3s ease;
+  &.small {
+    height: $header-shrink-height;
+    background-color: var(--footer-bg);
+    box-shadow: 0 2px 2px 2px rgba(37,37,37,.4);
+  }
+  .logo {
+    a {
+      padding: 0.375rem 0.75rem;
+      border: 2px solid var(--main-color);
+      border-radius: $border-radius;
+      &:hover {
+        color: var(--txt-color);
+      }
+    }
+  }
+  .nav-list {
+    @include flex(center, space-between);
+    height: 100%;
+    margin: 0;
+    .active {
+      color: var(--main-color);
+    }
+  }
+  .user {
+    .ant-col {
+      @include flex(center, center);
+    }
+    .ant-col:nth-child(1) {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        height: 24px;
+        width: 1px;
+        background-color: rgba($secondary-color, 0.25);
+      }
+    }
+    .ant-col:nth-child(2) {
+      justify-content: flex-end;
+    }
+    &__avt {
+      @include flex(center, center);
+      margin-right: 1rem;
+      i {
+        font-size: 26px;
+      }
+    }
+    &__name {
+      font-family: $cabin;
+      text-transform: capitalize;
+    }
+    &__cart {
+      @include flex(center, center);
+      font-family: $cabin;
+      width: 30px;
+      height: 30px;
+      background-color: var(--main-color);
+      border-radius: 50%;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../scss/" as *;
+.gear-card {
+  @include flex(center, space-between);
+  flex-direction: column;
+  height: 500px;
+  z-index: 1;
+  &__img,
+  &__body {
+    width: 100%;
+  }
+  &__img {
+    height: 60%;
+    img {
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px #111111);
+
+    }
+  }
+  &__body {
+    @include flex(center, space-between);
+    flex-direction: column;
+    height: 40%;
+    
+    .name {
+      text-align: center;
+      h3 {
+        color: var(--txt-color);
+        margin: 0;
+        filter: drop-shadow(0 0 10px #111111);
+
+      }
+      p {
+        color: var(--secondary-color);
+      }
+    }
+    .price {
+      p {
+        color: var(--main-color);
+        font-size: 28px;
+        font-weight: 500;
+      }
+    }
+    .add-to-cart {
+
+    }
+  }
+}
